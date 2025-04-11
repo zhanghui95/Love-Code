@@ -176,7 +176,7 @@
 
 	<div id="container"></div>
 	<audio autoplay="" loop="">
-		<source src="http://www.ytmp3.cn/down/72794.mp3">
+		<source src="https://lw-sycdn.kuwo.cn/34f91ff8c472947938482c1d187a14c3/67f8bf4e/resource/30106/trackmedia/M500001ruWKw1e3IUs.mp3?bitrate$128&from=vip">
 	</audio>
 	<div id="menu">
 		<button id="table">表格</button>
@@ -219,9 +219,9 @@
 			$('.show_info').show();
 			$('.show_info').addClass(_in[rand_in]);
 			var randIndex = Math.floor(Math.random() * 32) + 1;
-			document.getElementById('randomImage').src = './' + randIndex + '.png'
 			setTimeout(function () {
 				$('.show_info').removeClass(_in[rand_in]);
+				document.getElementById('randomImage').src = './' + randIndex + '.png';
 				// 更改展示的图片
 				var img = document.getElementsByClassName('element')[CurPersonNum].getElementsByTagName('img')[0];
 				img.setAttribute('src', './'  + randIndex + '.png');
