@@ -175,9 +175,24 @@
 	<script src="js/CSS3DRenderer.js"></script>
 
 	<div id="container"></div>
-	<audio autoplay="" loop="">
+<!-- 	<audio autoplay="" loop="">
 		<source src="https://lw-sycdn.kuwo.cn/34f91ff8c472947938482c1d187a14c3/67f8bf4e/resource/30106/trackmedia/M500001ruWKw1e3IUs.mp3?bitrate$128&from=vip">
+	</audio> -->
+<!-- 	<audio autoplay loop muted>
+    		<source src="https://lw-sycdn.kuwo.cn/34f91ff8c472947938482c1d187a14c3/67f8bf4e/resource/30106/trackmedia/M500001ruWKw1e3IUs.mp3?bitrate$128&from=vip" type="audio/mpeg">
+	</audio> -->
+	<button id="playButton">播放音频</button>
+	<audio id="audioPlayer" loop>
+	    <source src="https://lw-sycdn.kuwo.cn/34f91ff8c472947938482c1d187a14c3/67f8bf4e/resource/30106/trackmedia/M500001ruWKw1e3IUs.mp3?bitrate$128&from=vip" type="audio/mpeg">
 	</audio>
+	<script>
+	    document.getElementById('playButton').addEventListener('click', function() {
+	        var audio = document.getElementById('audioPlayer');
+	        audio.play().catch(function(error) {
+	            console.error('播放失败:', error);
+	        });
+	    });
+	</script>
 	<div id="menu">
 		<button id="table">表格</button>
 		<button id="sphere">球球</button>
