@@ -187,7 +187,7 @@
 
 	<div class="show_info animated" style="display:none;">
 		<div class="info_my">
-			<img width=200px src="" id = "" />
+			<img width=200px src="" id = "randomImage" />
 		</div>
 <!-- 		<div class="intro">天气好冷，我的心是冰冰的！</div> -->
 	</div>
@@ -199,6 +199,15 @@
 		var _in = ['bounceIn', 'bounceInDown', 'bounceInLeft', 'bounceInRight', 'bounceInUp', 'fadeIn', 'fadeInDown', 'fadeInDownBig', 'fadeInLeft', 'fadeInLeftBig', 'fadeInRight', 'fadeInRightBig', 'fadeInUp', 'fadeInUpBig', 'rotateIn', 'rotateInDownLeft', 'rotateInDownRight', 'rotateInUpLeft', 'rotateInUpRight', 'slideInDown', 'slideInLeft', 'slideInRight'];
 		var _out = ['bounceOut', 'bounceOutDown', 'bounceOutLeft', 'bounceOutRight', 'bounceOutUp', 'fadeOut', 'fadeOutDown', 'fadeOutDownBig', 'fadeOutLeft', 'fadeOutLeftBig', 'fadeOutRight', 'fadeOutRightBig', 'fadeOutUp', 'fadeOutUpBig', 'rotateOut', 'rotateOutDownLeft', 'rotateOutDownRight', 'rotateOutUpLeft', 'rotateOutUpRight', 'slideOutDown', 'slideOutLeft', 'slideOutRight'];
 
+		// 生成虚拟数据
+		for (var i = 0; i < 199; i++) {
+			var num = (i % 32) + 1; // 通过取模运算实现循环
+		    	var img = num + ".png";
+		    	personArray.push({
+				image: "./" + img
+		    	});
+		}
+		
 		// 模拟推送数据
 		var s = setInterval(function () {
 			// get animate
@@ -210,6 +219,7 @@
 			$('.show_info').show();
 			$('.show_info').addClass(_in[rand_in]);
 			var randIndex = Math.floor(Math.random() * 32) + 1;
+			document.getElementById('randomImage').src = './' + randIndex + '.png'
 			setTimeout(function () {
 				$('.show_info').removeClass(_in[rand_in]);
 				// 更改展示的图片
@@ -226,14 +236,7 @@
 			}, 1000);
 		}, 4500);
 
-		// 生成虚拟数据
-		for (var i = 0; i < 199; i++) {
-			var num = (i % 32) + 1; // 通过取模运算实现循环
-		    	var img = num + ".png";
-		    	personArray.push({
-				image: "./" + img
-		    	});
-		}
+		
 
 		var table = new Array;
 		for (var i = 0; i < personArray.length; i++) {
