@@ -182,7 +182,7 @@
     		<source src="https://lw-sycdn.kuwo.cn/34f91ff8c472947938482c1d187a14c3/67f8bf4e/resource/30106/trackmedia/M500001ruWKw1e3IUs.mp3?bitrate$128&from=vip" type="audio/mpeg">
 	</audio> -->
 	<button id="playButton">播放音频</button>
-	<audio id="audioPlayer" loop>
+	<audio id="audioPlayer" muted loop autoplay>
 	    <source src="./ydyan.mp3" autoplay="autoplay" loop preload="auto" type="audio/mp3">
 	</audio>
 	<script>
@@ -191,6 +191,7 @@
 	        audio.play().catch(function(error) {
 	            console.error('播放失败:', error);
 	        });
+		audio.muted = false;
 	    });
 	</script>
 	<div id="menu">
