@@ -241,7 +241,7 @@
 			var randIndex = Math.floor(Math.random() * 32) + 1;
 			setTimeout(function () {
 				$('.show_info').removeClass(_in[rand_in]);
-				// document.getElementById('randomImage').src = './' + randIndex + '.png';
+				document.getElementById('randomImage').src = './' + randIndex + '.png';
 				// 更改展示的图片
 				var img = document.getElementsByClassName('element')[CurPersonNum].getElementsByTagName('img')[0];
 				img.setAttribute('src', './'  + randIndex + '.png');
