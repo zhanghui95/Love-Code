@@ -173,14 +173,17 @@
 	<script src="js/tween.min.js"></script>
 	<script src="js/TrackballControls.js"></script>
 	<script src="js/CSS3DRenderer.js"></script>
-	<script>
-		window.onload = function () {
-			// 延迟一小段时间以确保用户交互前浏览器不会拦截
-			setTimeout(() => {
-				window.open("https://love-code-any.pages.dev/Web/007/ydyan.mp3", "_blank");
-			}, 500);
-		};
-	</script>
+
+	<div id="clickToStart" style="position:fixed; top:0; left:0; right:0; bottom:0; background:#000; color:#0ff; font-size:24px; text-align:center; padding-top:40vh; z-index:999;">
+    点击进入，播放音乐 🎵
+  </div>
+
+  <script>
+    document.getElementById('clickToStart').addEventListener('click', () => {
+      window.open("https://love-code-any.pages.dev/Web/007/ydyan.mp3", "_blank");
+      document.getElementById('clickToStart').style.display = 'none';
+    });
+  </script>
 
 	<div id="container"></div>
 <!-- 	<audio autoplay="" loop="">
