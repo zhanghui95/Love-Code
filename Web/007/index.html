@@ -186,13 +186,16 @@
 	    <source src="./ydyan.mp3" autoplay="autoplay" loop preload="auto" type="audio/mp3">
 	</audio>
 	<script>
-	    document.getElementById('playButton').addEventListener('click', function() {
-	        var audio = document.getElementById('audioPlayer');
-	        audio.play().catch(function(error) {
-	            console.error('播放失败:', error);
-	        });
+	    let hasPlayed = false;
+	document.getElementById('playButton').addEventListener('click', function () {
+	    const audio = document.getElementById('audioPlayer');
+	    if (!hasPlayed) {
 		audio.muted = false;
-	    });
+		audio.play().catch(err => console.error('播放失败:', err));
+		hasPlayed = true;
+		this.textContent = '音乐播放中...';
+	    }
+	});
 	</script>
 	<div id="menu">
 		<button id="table">表格</button>
