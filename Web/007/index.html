@@ -182,19 +182,23 @@
     		<source src="https://lw-sycdn.kuwo.cn/34f91ff8c472947938482c1d187a14c3/67f8bf4e/resource/30106/trackmedia/M500001ruWKw1e3IUs.mp3?bitrate$128&from=vip" type="audio/mpeg">
 	</audio> -->
 	<button id="playButton">播放音频</button>
-	<audio id="audioPlayer" muted loop autoplay>
-	    <source src="./ydyan.mp3" autoplay="autoplay" loop preload="auto" type="audio/mp3">
+	<audio id="audioPlayer" loop preload="auto">
+	    <source src="./ydyan.mp3" type="audio/mp3">
+	    您的浏览器不支持 audio 元素。
 	</audio>
+	
 	<script>
-	    let hasPlayed = false;
 	document.getElementById('playButton').addEventListener('click', function () {
 	    const audio = document.getElementById('audioPlayer');
-	    if (!hasPlayed) {
-		audio.muted = false;
-		audio.play().catch(err => console.error('播放失败:', err));
-		hasPlayed = true;
-		this.textContent = '音乐播放中...';
-	    }
+	
+	    // 尝试播放音频
+	    audio.play().then(() => {
+	        this.textContent = '音乐播放中...';
+	        console.log('播放成功');
+	    }).catch(err => {
+	        console.error('播放失败:', err);
+	        alert('播放失败，浏览器可能限制了自动播放。请确认是否允许音频播放。');
+	    });
 	});
 	</script>
 	<div id="menu">
