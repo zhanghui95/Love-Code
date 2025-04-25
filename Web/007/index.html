@@ -182,21 +182,24 @@
     		<source src="https://lw-sycdn.kuwo.cn/34f91ff8c472947938482c1d187a14c3/67f8bf4e/resource/30106/trackmedia/M500001ruWKw1e3IUs.mp3?bitrate$128&from=vip" type="audio/mpeg">
 	</audio> -->
 	<button id="playButton">播放音频</button>
-	<audio id="audioPlayer" src="ydyan.mp3" autoplay="autoplay" loop preload="auto" type="audio/mp3"></audio>
+	<audio id="audioPlayer" src="ydyan.mp3" loop preload="auto" type="audio/mp3"></audio>
 	
 	<script>
 	document.getElementById('playButton').addEventListener('click', function () {
 	    const audio = document.getElementById('audioPlayer');
 	
 	    // 尝试播放音频
-	    audio.play().then(() => {
-	        this.textContent = '音乐播放中...';
-	        console.log('播放成功');
-	    }).catch(err => {
-	        console.error('播放失败:', err);
-	        alert('播放失败，浏览器可能限制了自动播放。请确认是否允许音频播放。');
-	    });
-	});
+		if (audio.paused) {
+		    audio.play().then(() => {
+		        this.textContent = '音乐播放中...';
+		    }).catch(err => {
+		        console.error('播放失败:', err);
+		        alert('播放失败，浏览器可能限制了自动播放。请确认是否允许音频播放。');
+		    });
+		} else {
+		    this.textContent = '音乐已在播放中';
+		}
+	}
 	</script>
 	<div id="menu">
 		<button id="table">表格</button>
