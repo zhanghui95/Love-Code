@@ -238,7 +238,7 @@
 
 		// 生成虚拟数据
 		for (var i = 0; i < 199; i++) {
-			var num = (i % 35) + 1; // 通过取模运算实现循环
+			var num = (i % 40) + 1; // 通过取模运算实现循环
 		    	var img = num + ".png";
 		    	personArray.push({
 				image: "./" + img
@@ -255,7 +255,7 @@
 			}
 			$('.show_info').show();
 			$('.show_info').addClass(_in[rand_in]);
-			var randIndex = Math.floor(Math.random() * 35) + 1;
+			var randIndex = Math.floor(Math.random() * 40) + 1;
 			setTimeout(function () {
 				$('.show_info').removeClass(_in[rand_in]);
 				document.getElementById('randomImage').src = './' + randIndex + '.png';
